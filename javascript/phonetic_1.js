@@ -7,11 +7,11 @@ function report() {
     for(j = 0 ; j < tab.value.split('').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
+			tab_text+=`${tab.value.split('')[j] + '\t'},`;
 		} else if(j % 10 == 9) {
-			tab_text+=`${tab.value.split(' ')[j] + '\t'},`+"\n";
+			tab_text+=`${tab.value.split('')[j] + '\t'},`+"\n";
 		} else {
-			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
+			tab_text+=`${tab.value.split('')[j] + '\t'},`;
 		} 
     }   
 	while(j % 20 != 0){
@@ -48,7 +48,6 @@ function report() {
 		}
 		j++;
 	}  
-    tab_text=tab_text+"</table>";
     tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
     tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
     tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
