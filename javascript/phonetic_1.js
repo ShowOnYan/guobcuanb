@@ -72,9 +72,11 @@ function report() {
         sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xlsx");
     }  
     else                 //other browser not tested on IE 11
-        sa = window.open('data:application/vnd.ms-excel,' +　encodeURIComponent(tab_text));  
-
-    return (sa);
+	{
+		var link = window.document.createElement("a");
+		link.setAttribute("href", "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(tab_text));
+		link.setAttribute("download", "upload_data.csv");
+		link.click();
 }
 
 function Goix_h2bpm_guoyu(form) {
