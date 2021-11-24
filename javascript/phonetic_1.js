@@ -1,5 +1,5 @@
 function report() {
-    var tab_text="<table border='2px'><tr>";
+    var tab_text="";
     var textRange; var j=0;
     tab = document.getElementById('myidKiu_h2bpm_guoyu'); // id of table
 	console.log(tab.value);
@@ -7,12 +7,12 @@ function report() {
     for(j = 0 ; j < tab.value.split('').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text=tab_text+""+tab.value.split('')[j]+"\t";
+			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
 		} else if(j % 10 == 9) {
-			tab_text=tab_text+""+tab.value.split('')[j]+"\t"+"\n";
-			tab_text=tab_text+"<tr>"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
+			tab_text+=str+=`${jsonData[i][item] + '\t'},`+"\n";
+			tab_text=tab_text+"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
 		} else {
-			tab_text=tab_text+""+tab.value.split('')[j]+"\t";
+			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
 		} 
     }   
 	while(j % 20 != 0){
@@ -25,11 +25,6 @@ function report() {
 		}
 		j++;
 	}  
-    tab_text=tab_text+"</table>";
-	
-    tab_text=tab_text+"<br><br><br><br>";
-	
-    tab_text=tab_text+"<table border='2px'><tr>";
     var textRange; var j=0;
     tab = document.getElementById('myidXin_h2bpm_guoyu2'); // id of table
 	console.log(tab.value);
@@ -37,12 +32,12 @@ function report() {
     for(j = 0 ; j < tab.value.split(' ').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text=tab_text+""+tab.value.split(' ')[j]+"\t";
+			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
 		} else if(j % 10 == 9) {
-			tab_text=tab_text+""+tab.value.split(' ')[j]+"\t"+"\n";
-			tab_text=tab_text+"<tr>"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
+			tab_text+=str+=`${jsonData[i][item] + '\t'},`+"\n";
+			tab_text=tab_text+"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
 		} else {
-			tab_text=tab_text+""+tab.value.split(' ')[j]+"\t";
+			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
 		}
     }   
 	while(j % 20 != 0){
