@@ -7,21 +7,21 @@ function report() {
     for(j = 0 ; j < tab.value.split('').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text=tab_text+"<td>"+tab.value.split('')[j]+"</td>";
+			tab_text=tab_text+""+tab.value.split('')[j]+"\t";
 		} else if(j % 10 == 9) {
-			tab_text=tab_text+"<td>"+tab.value.split('')[j]+"</td>"+"</tr>";
-			tab_text=tab_text+"<tr>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"</tr>";
+			tab_text=tab_text+""+tab.value.split('')[j]+"\t"+"\n";
+			tab_text=tab_text+"<tr>"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
 		} else {
-			tab_text=tab_text+"<td>"+tab.value.split('')[j]+"</td>";
+			tab_text=tab_text+""+tab.value.split('')[j]+"\t";
 		} 
     }   
 	while(j % 20 != 0){
 		if(j % 10 == 0 && j == 0){
-			tab_text=tab_text+"<td></td>";
+			tab_text=tab_text+"\t";
 		} else if(j % 10 == 9) {
-			tab_text=tab_text+"<td></td>"+"</tr>";
+			tab_text=tab_text+"\t"+"\n";
 		} else {
-			tab_text=tab_text+"<td></td>";
+			tab_text=tab_text+"\t";
 		}
 		j++;
 	}  
@@ -37,21 +37,21 @@ function report() {
     for(j = 0 ; j < tab.value.split(' ').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text=tab_text+"<td>"+tab.value.split(' ')[j]+"</td>";
+			tab_text=tab_text+""+tab.value.split(' ')[j]+"\t";
 		} else if(j % 10 == 9) {
-			tab_text=tab_text+"<td>"+tab.value.split(' ')[j]+"</td>"+"</tr>";
-			tab_text=tab_text+"<tr>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"</tr>";
+			tab_text=tab_text+""+tab.value.split(' ')[j]+"\t"+"\n";
+			tab_text=tab_text+"<tr>"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
 		} else {
-			tab_text=tab_text+"<td>"+tab.value.split(' ')[j]+"</td>";
+			tab_text=tab_text+""+tab.value.split(' ')[j]+"\t";
 		}
     }   
 	while(j % 20 != 0){
 		if(j % 10 == 0 && j == 0){
-			tab_text=tab_text+"<td></td>";
+			tab_text=tab_text+"\t";
 		} else if(j % 10 == 9) {
-			tab_text=tab_text+"<td></td>"+"</tr>";
+			tab_text=tab_text+"\t"+"\n";
 		} else {
-			tab_text=tab_text+"<td></td>";
+			tab_text=tab_text+"\t";
 		}
 		j++;
 	}  
