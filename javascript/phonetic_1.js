@@ -71,7 +71,7 @@ function report() {
 		var link = document.createElement("a");
 		link.href = uri;
 		//對下載的檔案命名
-		link.download =  "json資料表.csv";
+		link.download =  "國字轉國傳.csv";
 		document.body.appendChild(link);
 		link.click();
 		document.body.removeChild(link);
