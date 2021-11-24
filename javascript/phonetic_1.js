@@ -85,7 +85,6 @@ function report() {
 		document.body.removeChild(link);
 	}
 
-    return (sa);
 }
 
 function Goix_h2bpm_guoyu(form) {
