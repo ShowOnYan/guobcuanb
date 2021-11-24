@@ -7,12 +7,11 @@ function report() {
     for(j = 0 ; j < tab.value.split('').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
+			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
 		} else if(j % 10 == 9) {
-			tab_text+=str+=`${jsonData[i][item] + '\t'},`+"\n";
-			tab_text=tab_text+"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
+			tab_text+=`${tab.value.split(' ')[j] + '\t'},`+"\n";
 		} else {
-			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
+			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
 		} 
     }   
 	while(j % 20 != 0){
@@ -32,12 +31,11 @@ function report() {
     for(j = 0 ; j < tab.value.split(' ').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
+			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
 		} else if(j % 10 == 9) {
-			tab_text+=str+=`${jsonData[i][item] + '\t'},`+"\n";
-			tab_text=tab_text+"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\t"+"\n";
+			tab_text+=`${tab.value.split(' ')[j] + '\t'},`+"\n";
 		} else {
-			tab_text+=str+=`${jsonData[i][item] + '\t'},`;
+			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
 		}
     }   
 	while(j % 20 != 0){
