@@ -1,4 +1,86 @@
-function Goix_h2bpm_guoyu(form) {  if (!document.getElementById) return;  myXinCu=document.getElementById("myidXin_h2bpm_guoyu");
+function report() {
+    var tab_text="<table border='2px'><tr>";
+    var textRange; var j=0;
+    tab = document.getElementById('myidKiu_h2bpm_guoyu'); // id of table
+	console.log(tab.value);
+
+    for(j = 0 ; j < tab.value.split('').length ; j++) 
+    {
+		if(j % 10 == 0 && j == 0){
+			tab_text=tab_text+"<td>"+tab.value.split('')[j]+"</td>";
+		} else if(j % 10 == 9) {
+			tab_text=tab_text+"<td>"+tab.value.split('')[j]+"</td>"+"</tr>";
+			tab_text=tab_text+"<tr>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"</tr>";
+		} else {
+			tab_text=tab_text+"<td>"+tab.value.split('')[j]+"</td>";
+		} 
+    }   
+	while(j % 20 != 0){
+		if(j % 10 == 0 && j == 0){
+			tab_text=tab_text+"<td></td>";
+		} else if(j % 10 == 9) {
+			tab_text=tab_text+"<td></td>"+"</tr>";
+		} else {
+			tab_text=tab_text+"<td></td>";
+		}
+		j++;
+	}  
+    tab_text=tab_text+"</table>";
+	
+    tab_text=tab_text+"<br><br><br><br>";
+	
+    tab_text=tab_text+"<table border='2px'><tr>";
+    var textRange; var j=0;
+    tab = document.getElementById('myidXin_h2bpm_guoyu2'); // id of table
+	console.log(tab.value);
+
+    for(j = 0 ; j < tab.value.split(' ').length ; j++) 
+    {
+		if(j % 10 == 0 && j == 0){
+			tab_text=tab_text+"<td>"+tab.value.split(' ')[j]+"</td>";
+		} else if(j % 10 == 9) {
+			tab_text=tab_text+"<td>"+tab.value.split(' ')[j]+"</td>"+"</tr>";
+			tab_text=tab_text+"<tr>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"<td></td>"+"</tr>";
+		} else {
+			tab_text=tab_text+"<td>"+tab.value.split(' ')[j]+"</td>";
+		}
+    }   
+	while(j % 20 != 0){
+		if(j % 10 == 0 && j == 0){
+			tab_text=tab_text+"<td></td>";
+		} else if(j % 10 == 9) {
+			tab_text=tab_text+"<td></td>"+"</tr>";
+		} else {
+			tab_text=tab_text+"<td></td>";
+		}
+		j++;
+	}  
+    tab_text=tab_text+"</table>";
+    tab_text= tab_text.replace(/<A[^>]*>|<\/A>/g, "");//remove if u want links in your table
+    tab_text= tab_text.replace(/<img[^>]*>/gi,""); // remove if u want images in your table
+    tab_text= tab_text.replace(/<input[^>]*>|<\/input>/gi, ""); // reomves input params
+
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE "); 
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))      // If Internet Explorer
+    {
+        txtArea1.document.open("txt/html","replace");
+        txtArea1.document.write(tab_text);
+        txtArea1.document.close();
+        txtArea1.focus(); 
+        sa=txtArea1.document.execCommand("SaveAs",true,"Say Thanks to Sumit.xlsx");
+    }  
+    else                 //other browser not tested on IE 11
+        sa = window.open('data:application/vnd.ms-excel,' +　encodeURIComponent(tab_text));  
+
+    return (sa);
+}
+
+function Goix_h2bpm_guoyu(form) {
+	
+    console.log("Goix_h2bpm_guoyu");  
+	if (!document.getElementById) return;  myXinCu=document.getElementById("myidXin_h2bpm_guoyu");
 	myXinCu2=document.getElementById("myidXin_h2bpm_guoyu2");
 	var guobcuanb = "";
 	var i;
@@ -7,6 +89,7 @@ function Goix_h2bpm_guoyu(form) {  if (!document.getElementById) return;  myXinC
 	var myKiuCu = new String(form.myidKiu_h2bpm_guoyu.value);
 	var myRE;
 	var myRE2;
+	var space = 0;
 	for (i = 0; i < c.length; i+=2) {   
 		myRE = new RegExp (c[i], ["g"]);
 		   myKiuCu = myKiuCu.replace(myRE, "X"+i+"Y");
@@ -334,11 +417,17 @@ function Goix_h2bpm_guoyu(form) {  if (!document.getElementById) return;  myXinC
 				guobcuanb += "";
 			break;
 			default:
-				guobcuanb += " ";
+				if(k != 0) {
+					space += 1;
+					guobcuanb += " ";
+				}
 			break;
 		}
-		if (k % 10 = 0)
-			guobcuanb += " /n";
+		if (space % 10 == 0 && space != 0) {
+			guobcuanb += "\r\n";
+			space = 0;
+		}
 	}   
 	myXinCu.value = myKiuCu;
-	myXinCu2.value = guobcuanb;}
+	myXinCu2.value = guobcuanb;
+}
