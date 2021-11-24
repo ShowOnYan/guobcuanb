@@ -73,10 +73,19 @@ function report() {
     }  
     else                 //other browser not tested on IE 11
 	{
-		var link = window.document.createElement("a");
-		link.setAttribute("href", "data:text/csv;charset=utf-8,%EF%BB%BF" + encodeURI(tab_text));
-		link.setAttribute("download", "upload_data.csv");
+		//encodeURIComponent解決中文亂碼
+		let uri = 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(tab_text);
+		//通過建立a標籤實現
+		var link = document.createElement("a");
+		link.href = uri;
+		//對下載的檔案命名
+		link.download =  "json資料表.csv";
+		document.body.appendChild(link);
 		link.click();
+		document.body.removeChild(link);
+	}
+
+    return (sa);
 }
 
 function Goix_h2bpm_guoyu(form) {
