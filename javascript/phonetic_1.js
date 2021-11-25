@@ -7,11 +7,11 @@ function report() {
     for(j = 0 ; j < tab.value.split('').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text+=`${tab.value.split('')[j] + '\t'},`;
+			tab_text+=`${tab.value.split('')[j]},`;
 		} else if(j % 10 == 9) {
-			tab_text+=`${tab.value.split('')[j] + '\t'},`+"\n";
+			tab_text+=`${tab.value.split('')[j]},`+"\n";
 		} else {
-			tab_text+=`${tab.value.split('')[j] + '\t'},`;
+			tab_text+=`${tab.value.split('')[j]},`;
 		} 
     }   
 	while(j % 20 != 0){
@@ -31,11 +31,11 @@ function report() {
     for(j = 0 ; j < tab.value.split(' ').length ; j++) 
     {
 		if(j % 10 == 0 && j == 0){
-			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
+			tab_text+=`${tab.value.split(' ')[j]},`;
 		} else if(j % 10 == 9) {
-			tab_text+=`${tab.value.split(' ')[j] + '\t'},`+"\n";
+			tab_text+=`${tab.value.split(' ')[j]},`+"\n";
 		} else {
-			tab_text+=`${tab.value.split(' ')[j] + '\t'},`;
+			tab_text+=`${tab.value.split(' ')[j]},`;
 		}
     }   
 	while(j % 20 != 0){
